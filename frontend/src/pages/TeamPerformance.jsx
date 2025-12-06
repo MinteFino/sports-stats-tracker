@@ -7,14 +7,16 @@ export default function TeamPerformance() {
       {/* Header */}
       <div className="team-header">
         <img
-          src="https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/1200px-FC_Barcelona_%28crest%29.svg.png"
+          src="https://placehold.co/80x80?text=Team"
           alt="Team Logo"
           className="team-logo"
         />
 
         <div>
           <h1 className="team-title">Team Performance</h1>
-          <p className="team-subtitle">Analyze team stats, form, and trends</p>
+          <p className="team-subtitle">
+            Analyze team stats, form, and trends across leagues and seasons.
+          </p>
         </div>
       </div>
 
@@ -25,6 +27,8 @@ export default function TeamPerformance() {
           <option>Premier League</option>
           <option>La Liga</option>
           <option>Serie A</option>
+          <option>Bundesliga</option>
+          <option>Ligue 1</option>
         </select>
 
         <select className="filter-select">
@@ -32,6 +36,8 @@ export default function TeamPerformance() {
           <option>2023-2024</option>
           <option>2022-2023</option>
           <option>2021-2022</option>
+          <option>2020-2021</option>
+          <option>2019-2020</option>
         </select>
       </div>
 
@@ -81,7 +87,6 @@ export default function TeamPerformance() {
           <p className="match-result">Score: -- : --</p>
           <p className="match-date">Date: --/--/----</p>
         </div>
-
       </div>
 
     </div>

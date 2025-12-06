@@ -1,0 +1,103 @@
+.live-container {
+  padding: 40px;
+  color: #f1f5f9;
+  background: #0f172a;
+  min-height: 100vh;
+}
+
+.live-title {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.live-subtitle {
+  color: #94a3b8;
+  margin-bottom: 25px;
+}
+
+.live-filters {
+  margin-bottom: 25px;
+}
+
+.filter-select {
+  padding: 10px 14px;
+  border-radius: 8px;
+  background-color: #1e293b;
+  color: white;
+  border: 1px solid #475569;
+  outline: none;
+}
+
+.live-matches-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.live-card {
+  background-color: rgba(30, 41, 59, 0.9);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.6);
+}
+
+.live-card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.live-tag {
+  background-color: #dc2626;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.upcoming-tag {
+  background-color: #2563eb;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.live-time {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.teams {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 0;
+}
+
+.team-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.score {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.upcoming-score {
+  font-size: 1.3rem;
+  color: #94a3b8;
+}
+
+.live-details {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  margin-top: 8px;
+}
+
+.upcoming {
+  background-color: rgba(51, 65, 85, 0.8);
+}

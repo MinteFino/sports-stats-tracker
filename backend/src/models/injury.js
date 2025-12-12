@@ -13,7 +13,7 @@ const Injury = sequelize.define(
         player_id: DataTypes.INTEGER,
         injury_type: DataTypes.STRING,
         description: DataTypes.TEXT,
-        return_data: DataTypes.DATE,
+        return_date: DataTypes.DATE,
         status: {type: DataTypes.STRING, defaultValue: "active"}
     },
     {tableName: "Injury", timestamps: false}

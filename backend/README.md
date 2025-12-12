@@ -3,6 +3,8 @@
 ## Prerequisites
 - Node.js (v14 or higher)
 - npm
+- MySQL Server (8.x recommended) running locally
+- (Optional) MySQL Workbench for running SQL scripts
 
 ## Installation
 1. Install dependencies:
@@ -11,7 +13,7 @@ npm Install
 
 2. Create a `.env` file in the backend directory
 
-3. In the backend directory you can run:
+3. In the backend directory, you can run:
 
 npm run dev
 
@@ -19,6 +21,17 @@ npm run dev
 
 This will show you how to install and set up node.js: https://medium.com/@ibrahimhz/creating-your-first-backend-with-node-js-step-by-step-guide-892769af4cb0
 
+Need to create a .env file in the backend or edit the one we have in the backend folder. 
+.env file example
+PORT=5000
+DB_HOST=localhost
+DB_USER=root
+DB_PASS=yourpassword
+DB_NAME=sportsstatstracker
+DB_PORT=3306
+JWT_SECRET=change_this
+
+Connect the DB and open and run both the schema and seed SQL files. 
 
 
 

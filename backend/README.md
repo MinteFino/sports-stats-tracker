@@ -5,6 +5,7 @@
 - npm
 - MySQL Server (8.x recommended) running locally
 - (Optional) MySQL Workbench for running SQL scripts
+- balldontlie API key 
 
 ## Installation
 1. Install dependencies:
@@ -21,17 +22,31 @@ npm run dev
 
 This will show you how to install and set up node.js: https://medium.com/@ibrahimhz/creating-your-first-backend-with-node-js-step-by-step-guide-892769af4cb0
 
-Need to create a .env file in the backend or edit the one we have in the backend folder. 
+Need to create a .env file in the backend or edit the one we have in the backend folder.
+
 .env file example
 PORT=5000
+
 DB_HOST=localhost
 DB_USER=root
 DB_PASS=yourpassword
 DB_NAME=sportsstatstracker
 DB_PORT=3306
+
 JWT_SECRET=change_this
 
-Connect the DB and open and run both the schema and seed SQL files. 
+BALLDONTLIE_API_KEY=YOUR_API_KEY
+
+
+Next,
+Connect the DB and open and execute the schema, which will create a DB called "sportsstatstracker"
+Then, in the backend, run these commands
+1. npm install
+2. npm run dev - this should sync the database
+3. npm run ingest:nba - this will pull the live data from the api and upsert into the database. 
+
+
+
 
 
 

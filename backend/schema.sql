@@ -1,3 +1,4 @@
+CREATE DATABASE IF NOT EXISTS sportsstatstracker;
 USE sportsstatstracker;
 
 -- TABLE FOR TEAM

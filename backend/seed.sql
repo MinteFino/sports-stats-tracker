@@ -261,6 +261,161 @@ INSERT INTO Player (player_id, first_name, last_name, position, team_id) VALUES
 (149, 'Justin', 'Champagnie', 'PF', 30),
 (150, 'Marvin', 'Bagley III', 'C',  30);
 
+
+-- SOCCER LEAGUE IDS
+-- 1 = NBA (existing), Since soccer contains many different leagues we have 2 = Premier League, 3 = La Liga, 4 = Bundesliga, 5 = Serie A, 6 = MLS, 7 = Saudi Pro League
+
+-- SOCCER TEAMS only added a few teams for demo purposes
+INSERT INTO Team (team_id, name, league_id) VALUES
+(31, 'Manchester City',      2),
+(32, 'Arsenal',              2),
+(33, 'Liverpool',            2),
+(34, 'Chelsea',              2),
+(35, 'Manchester United',    2),
+(36, 'Real Madrid',          3),
+(37, 'Barcelona',            3),
+(38, 'Atletico Madrid',      3),
+(39, 'Sevilla',              3),
+(40, 'Bayern Munich',        4),
+(41, 'Borussia Dortmund',    4),
+(42, 'RB Leipzig',           4),
+(43, 'Bayer Leverkusen',     4),
+(44, 'Inter Milan',          5),
+(45, 'Juventus',             5),
+(46, 'AC Milan',             5),
+(47, 'Napoli',               5),
+(48, 'Inter Miami CF',       6),
+(49, 'LA Galaxy',            6),
+(50, 'Al Nassr',             7),
+(51, 'Al Hilal',             7);
+-- SOCCER PLAYERS (player_id 151+ to avoid NBA collisions)
+INSERT INTO Player (player_id, first_name, last_name, position, team_id) VALUES
+-- Manchester City (31)
+(151, 'Erling', 'Haaland', 'FW', 31),
+(152, 'Kevin', 'De Bruyne', 'MF', 31),
+(153, 'Rodri', 'Hernandez', 'MF', 31),
+(154, 'Ederson', 'Moraes', 'GK', 31),
+
+-- Arsenal (32)
+(155, 'Bukayo', 'Saka', 'FW', 32),
+(156, 'Martin', 'Odegaard', 'MF', 32),
+(157, 'Declan', 'Rice', 'MF', 32),
+(158, 'William', 'Saliba', 'DF', 32),
+
+-- Liverpool (33)
+(159, 'Mohamed', 'Salah', 'FW', 33),
+(160, 'Luis', 'Diaz', 'FW', 33),
+(161, 'Virgil', 'van Dijk', 'DF', 33),
+(162, 'Alisson', 'Becker', 'GK', 33),
+
+-- Chelsea (34)
+(163, 'Enzo', 'Fernandez', 'MF', 34),
+(164, 'Cole', 'Palmer', 'FW', 34),
+(165, 'Reece', 'James', 'DF', 34),
+(166, 'Raheem', 'Sterling', 'FW', 34),
+
+-- Manchester United (35)
+(167, 'Bruno', 'Fernandes', 'MF', 35),
+(168, 'Marcus', 'Rashford', 'FW', 35),
+(169, 'Casemiro', '', 'MF', 35),
+(170, 'Andre', 'Onana', 'GK', 35),
+
+-- Real Madrid (36)
+(171, 'Jude', 'Bellingham', 'MF', 36),
+(172, 'Vinicius', 'Junior', 'FW', 36),
+(173, 'Rodrygo', 'Goes', 'FW', 36),
+(174, 'Thibaut', 'Courtois', 'GK', 36),
+
+-- Barcelona (37)
+(175, 'Pedri', '', 'MF', 37),
+(176, 'Gavi', '', 'MF', 37),
+(177, 'Robert', 'Lewandowski', 'FW', 37),
+(178, 'Marc-Andre', 'ter Stegen', 'GK', 37),
+
+-- Atletico Madrid (38)
+(179, 'Antoine', 'Griezmann', 'FW', 38),
+(180, 'Alvaro', 'Morata', 'FW', 38),
+(181, 'Koke', '', 'MF', 38),
+(182, 'Jan', 'Oblak', 'GK', 38),
+
+-- Sevilla (39)
+(183, 'Ivan', 'Rakitic', 'MF', 39),
+(184, 'Lucas', 'Ocampos', 'FW', 39),
+(185, 'Nemanja', 'Gudelj', 'MF', 39),
+(186, 'Marko', 'Dmitrovic', 'GK', 39),
+
+-- Bayern Munich (40)
+(187, 'Harry', 'Kane', 'FW', 40),
+(188, 'Jamal', 'Musiala', 'MF', 40),
+(189, 'Joshua', 'Kimmich', 'MF', 40),
+(190, 'Manuel', 'Neuer', 'GK', 40),
+
+-- Borussia Dortmund (41)
+(191, 'Marco', 'Reus', 'MF', 41),
+(192, 'Jadon', 'Sancho', 'FW', 41),
+(193, 'Mats', 'Hummels', 'DF', 41),
+(194, 'Gregor', 'Kobel', 'GK', 41),
+
+-- RB Leipzig (42)
+(195, 'Dani', 'Olmo', 'MF', 42),
+(196, 'Timo', 'Werner', 'FW', 42),
+(197, 'Willi', 'Orban', 'DF', 42),
+(198, 'Peter', 'Gulacsi', 'GK', 42),
+
+-- Bayer Leverkusen (43)
+(199, 'Florian', 'Wirtz', 'MF', 43),
+(200, 'Granit', 'Xhaka', 'MF', 43),
+(201, 'Victor', 'Boniface', 'FW', 43),
+(202, 'Lukas', 'Hradecky', 'GK', 43),
+
+-- Inter Milan (44)
+(203, 'Lautaro', 'Martinez', 'FW', 44),
+(204, 'Nicolo', 'Barella', 'MF', 44),
+(205, 'Marcus', 'Thuram', 'FW', 44),
+(206, 'Yann', 'Sommer', 'GK', 44),
+
+-- Juventus (45)
+(207, 'Dusan', 'Vlahovic', 'FW', 45),
+(208, 'Federico', 'Chiesa', 'FW', 45),
+(209, 'Adrien', 'Rabiot', 'MF', 45),
+(210, 'Wojciech', 'Szczesny', 'GK', 45),
+
+-- AC Milan (46)
+(211, 'Rafael', 'Leao', 'FW', 46),
+(212, 'Christian', 'Pulisic', 'FW', 46),
+(213, 'Theo', 'Hernandez', 'DF', 46),
+(214, 'Mike', 'Maignan', 'GK', 46),
+
+-- Napoli (47)
+(215, 'Victor', 'Osimhen', 'FW', 47),
+(216, 'Khvicha', 'Kvaratskhelia', 'FW', 47),
+(217, 'Stanislav', 'Lobotka', 'MF', 47),
+(218, 'Alex', 'Meret', 'GK', 47),
+
+-- Inter Miami CF (48)
+(219, 'Lionel', 'Messi', 'FW', 48),
+(220, 'Sergio', 'Busquets', 'MF', 48),
+(221, 'Jordi', 'Alba', 'DF', 48),
+(222, 'Luis', 'Suarez', 'FW', 48),
+
+-- LA Galaxy (49)
+(223, 'Riqui', 'Puig', 'MF', 49),
+(224, 'Dejan', 'Joveljic', 'FW', 49),
+(225, 'Maya', 'Yoshida', 'DF', 49),
+(226, 'Jonathan', 'Bond', 'GK', 49),
+
+-- Al Nassr (50)
+(227, 'Cristiano', 'Ronaldo', 'FW', 50),
+(228, 'Sadio', 'Mane', 'FW', 50),
+(229, 'Marcelo', 'Brozovic', 'MF', 50),
+(230, 'David', 'Ospina', 'GK', 50),
+
+-- Al Hilal (51)
+(231, 'Neymar', '', 'FW', 51),
+(232, 'Aleksandar', 'Mitrovic', 'FW', 51),
+(233, 'Sergej', 'Milinkovic-Savic', 'MF', 51),
+(234, 'Yassine', 'Bounou', 'GK', 51);
+
 -- MATCHES (MATCHES FROM DEC 10th - Dec 14th
 INSERT INTO `Match` (match_id, team1_id, team2_id, score1, score2, status, match_date, match_time) VALUES
 (1,  27, 14, 132, 119, 'finished',  '2025-12-10', '18:00'),  -- Spurs vs Lakers
@@ -274,7 +429,20 @@ INSERT INTO `Match` (match_id, team1_id, team2_id, score1, score2, status, match
 (9, 12, 23,   0,   0, 'scheduled', '2025-12-12', '18:00'),  -- Pacers vs 76ers
 (10, 6, 30,  0,  0, 'scheduled',     '2025-12-12', '18:00');  -- Cavaliers vs Wizards
 
--- INJURIES (active & resolved)
+-- SOCCER MATCHES (MATCHES FROM DEC 11th - DEC 15th) fake scores/ statuses for demo purposes
+INSERT INTO `Match` (match_id, team1_id, team2_id, score1, score2, status, match_date, match_time) VALUES
+(11, 32, 34, 2, 1, 'live',      '2025-12-12', '15:00'),  -- Arsenal vs Chelsea
+(12, 36, 37, 3, 2, 'finished',  '2025-12-11', '21:00'),  -- Real Madrid vs Barcelona
+(13, 40, 41, 0, 0, 'scheduled', '2025-12-13', '18:30'),  -- Bayern vs Dortmund
+(14, 44, 45, 0, 0, 'scheduled', '2025-12-13', '20:00'),  -- Inter vs Juventus
+(15, 48, 49, 0, 0, 'scheduled', '2025-12-14', '19:00'),  -- Inter Miami vs LA Galaxy
+(16, 50, 51, 1, 1, 'live',      '2025-12-12', '17:00'),  -- Al Nassr vs Al Hilal
+(17, 33, 35, 0, 0, 'scheduled', '2025-12-12', '16:00'),  -- Liverpool vs Manchester United
+(18, 38, 39, 0, 0, 'scheduled', '2025-12-14', '18:00'),  -- Atletico Madrid vs Sevilla
+(19, 42, 43, 0, 0, 'scheduled', '2025-12-15', '19:30'),  -- RB Leipzig vs Bayer Leverkusen
+(20, 46, 47, 0, 0, 'scheduled', '2025-12-15', '21:00');  -- AC Milan vs Napoli
+
+-- INJURIES (active & resolved) These are all samples and manually created for demo purposes.
 
 INSERT INTO Injury (injury_id, player_id, injury_type, description, return_date, status) VALUES
 (1,  68, 'Ankle Sprain',  'Lakers Rui Hachimura tweaked ankle landing from a rebound.', '2025-12-17', 'active'),
@@ -283,3 +451,14 @@ INSERT INTO Injury (injury_id, player_id, injury_type, description, return_date,
 (4, 111, 'Hamstring',     'Philly Tyrese Maxey pulled hamstring on fast break.',      '2026-01-20', 'active'),
 (5, 146, 'Wrist Sprain',  'Wizards Bub Carrington fell on shooting wrist.',             '2025-12-19', 'active'),
 (6,  21, 'Shoulder',      'Chicago Cody White shoulder soreness.',                  '2024-12-07', 'resolved');
+
+-- SOCCER INJURIES (injury_id manually continued from previous IDs) created for demo purposes
+INSERT INTO Injury (injury_id, player_id, injury_type, description, return_date, status) VALUES
+(7,  219, 'Hamstring', 'Inter Miami Lionel Messi nursing mild hamstring tightness.', '2026-01-05', 'active'),
+(8,  227, 'Knee', 'Al Nassr Cristiano Ronaldo managing knee soreness.', '2025-12-20', 'active'),
+(9,  171, 'Ankle', 'Real Madrid Jude Bellingham recovering from ankle knock.', '2025-12-22', 'active'),
+(10, 172, 'Hamstring', 'Real Madrid Vinicius Junior cleared from hamstring strain.', '2025-12-10', 'resolved'),
+(11, 175, 'Knee', 'Barcelona Pedri out with knee sprain.', '2026-02-01', 'active'),
+(12, 187, 'Groin', 'Bayern Harry Kane rested due to groin tightness.', '2025-12-09', 'resolved'),
+(13, 231, 'Foot', 'Al Hilal Neymar foot contusion under evaluation.', '2025-12-25', 'active'),
+(14, 155, 'Calf', 'Arsenal Bukayo Saka calf tightness precautionary.', '2025-12-18', 'active');

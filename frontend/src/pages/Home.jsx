@@ -1,7 +1,29 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import api from "../api/api";
 import "./Home.css";
 
 export default function Home() {
+  const [snapshot, setSnapshot] = useState({
+    liveGames: "--",
+    leagues: "NBA, Soccer",
+    players: "--",
+  });
+
+  useEffect(() => {
+    api.get("/api/stats")
+      .then((res) => {
+        setSnapshot({
+          liveGames: res.data.liveGames ?? "--",
+          leagues: "NBA, Soccer",
+          players: res.data.players ?? "--",
+        });
+      })
+      .catch(() => {
+        // keep fallback values if API is not ready
+      });
+  }, []);
+
   return (
     <div className="home">
       {/* Hero Section */}
@@ -10,7 +32,8 @@ export default function Home() {
           <h1 className="home-title">Sports Stats Tracker</h1>
           <p className="home-subtitle">
             Track players, teams, live matches, and injuries — all in one
-            modern dashboard built for fans, coaches, and fantasy players.
+            dashboard built for fans, coaches, and fantasy players.
+            Currently supporting NBA and Soccer.
           </p>
 
           <div className="home-cta-buttons">
@@ -23,9 +46,9 @@ export default function Home() {
           </div>
 
           <div className="home-meta">
-            <span>Real-time stats*</span>
-            <span>Multi-league support</span>
-            <span>Visual performance trends</span>
+            <span>NBA & Soccer coverage</span>
+            <span>Live match tracking</span>
+            <span>Team & player analytics</span>
           </div>
         </div>
 
@@ -34,18 +57,20 @@ export default function Home() {
           <div className="home-card-grid">
             <div className="home-card">
               <p className="card-label">Live Games</p>
-              <p className="card-value">--</p>
-              <p className="card-footer">Updated when API is connected</p>
+              <p className="card-value">{snapshot.liveGames}</p>
+              <p className="card-footer">NBA & Soccer matches</p>
             </div>
+
             <div className="home-card">
-              <p className="card-label">Tracked Leagues</p>
-              <p className="card-value">4+</p>
-              <p className="card-footer">Premier, La Liga, more…</p>
+              <p className="card-label">Leagues</p>
+              <p className="card-value">{snapshot.leagues}</p>
+              <p className="card-footer">Currently supported</p>
             </div>
+
             <div className="home-card">
               <p className="card-label">Players</p>
-              <p className="card-value">1000+</p>
-              <p className="card-footer">Filter by season & team</p>
+              <p className="card-value">{snapshot.players}</p>
+              <p className="card-footer">Across all teams</p>
             </div>
           </div>
         </div>
@@ -59,50 +84,47 @@ export default function Home() {
             <Link to="/players" className="home-link-card">
               <h3>Player Search</h3>
               <p>
-                Look up individual players and view goals, assists, matches
-                played, and injury status.
+                Search NBA and Soccer players and view team, position,
+                and availability information.
               </p>
             </Link>
 
             <Link to="/team" className="home-link-card">
               <h3>Team Performance</h3>
               <p>
-                Analyze wins, losses, goal difference, and trends across
-                seasons and leagues.
+                Analyze wins, losses, scoring trends, and season performance
+                for NBA and Soccer teams.
               </p>
             </Link>
 
             <Link to="/live" className="home-link-card">
               <h3>Live Matches</h3>
               <p>
-                Follow live scores, match events, and box scores in near
-                real-time.
+                Follow live NBA games and Soccer matches with updated
+                scores and match status.
               </p>
             </Link>
 
             <Link to="/injuries" className="home-link-card">
               <h3>Injury Reports</h3>
               <p>
-                Check injuries by team or league to support coaching and
-                fantasy decisions.
+                View injury reports for NBA and Soccer players to
+                support analysis and fantasy decisions.
               </p>
             </Link>
           </div>
         </div>
 
         <div className="home-section muted">
-          <h2>How Stat Gurus helps users</h2>
+          <h2>How this platform helps</h2>
           <ul className="home-bullets">
-            <li>Sports fans get one central hub instead of checking 3–4 sites.</li>
-            <li>Fantasy players can quickly see injuries and recent form.</li>
-            <li>
-              Coaches and analysts can filter by league and season to spot
-              trends.
-            </li>
+            <li>NBA and Soccer data in one place.</li>
+            <li>Quick access to live matches and injury updates.</li>
+            <li>Simple interface for analysis and decision-making.</li>
           </ul>
           <p className="home-footnote">
-            *Live stats and counts will update automatically once the backend
-            and sports API integration are completed.
+            Live statistics update automatically as backend and sports
+            API integrations are completed.
           </p>
         </div>
       </section>

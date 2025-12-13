@@ -1,6 +1,26 @@
+import { useEffect, useState } from "react";
 import "./TeamPerformance.css";
 
 export default function TeamPerformance() {
+  const [stats, setStats] = useState(null);
+  const [matches, setMatches] = useState([]);
+
+  useEffect(() => {
+    const fetchTeamPerformance = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/api/teams/performance");
+        const data = await res.json();
+
+        setStats(data);
+        setMatches(data.recentMatches || []);
+      } catch (error) {
+        console.error("Failed to load team performance:", error);
+      }
+    };
+
+    fetchTeamPerformance();
+  }, []);
+
   return (
     <div className="team-container">
 
@@ -45,22 +65,22 @@ export default function TeamPerformance() {
       <div className="team-stats-grid">
         <div className="team-stat-card">
           <h3>Wins</h3>
-          <p className="stat-value">--</p>
+          <p className="stat-value">{stats ? stats.wins : "--"}</p>
         </div>
 
         <div className="team-stat-card">
           <h3>Losses</h3>
-          <p className="stat-value">--</p>
+          <p className="stat-value">{stats ? stats.losses : "--"}</p>
         </div>
 
         <div className="team-stat-card">
           <h3>Goals Scored</h3>
-          <p className="stat-value">--</p>
+          <p className="stat-value">{stats ? stats.goalsScored : "--"}</p>
         </div>
 
         <div className="team-stat-card">
           <h3>Goals Conceded</h3>
-          <p className="stat-value">--</p>
+          <p className="stat-value">{stats ? stats.goalsConceded : "--"}</p>
         </div>
       </div>
 
@@ -76,17 +96,17 @@ export default function TeamPerformance() {
       <div className="team-matches">
         <h2>Recent Matches</h2>
 
-        <div className="match-card">
-          <p className="match-teams">Team A vs Team B</p>
-          <p className="match-result">Score: -- : --</p>
-          <p className="match-date">Date: --/--/----</p>
-        </div>
+        {matches.length === 0 && (
+          <p className="no-results">No recent matches available.</p>
+        )}
 
-        <div className="match-card">
-          <p className="match-teams">Team C vs Team D</p>
-          <p className="match-result">Score: -- : --</p>
-          <p className="match-date">Date: --/--/----</p>
-        </div>
+        {matches.map((match, index) => (
+          <div key={index} className="match-card">
+            <p className="match-teams">{match.teams}</p>
+            <p className="match-result">Score: {match.score}</p>
+            <p className="match-date">Date: {match.date}</p>
+          </div>
+        ))}
       </div>
 
     </div>

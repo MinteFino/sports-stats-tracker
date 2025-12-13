@@ -1,4 +1,5 @@
 import { useState } from "react";
+import api from "../api/api";
 import "./PlayerSearch.css";
 
 export default function PlayerSearch() {
@@ -10,14 +11,14 @@ export default function PlayerSearch() {
     e.preventDefault();
     setLoading(true);
 
-    // TEMPORARY FAKE DATA — I will replace with API later
-    setTimeout(() => {
-      setPlayers([
-        { name: "Lionel Messi", team: "Inter Miami", position: "FW", age: 36 },
-        { name: "Cristiano Ronaldo", team: "Al Nassr", position: "FW", age: 38 },
-      ]);
+    try {
+      const res = await api.get(`/api/players?search=${query}`);
+      setPlayers(res.data);
+    } catch (error) {
+      setPlayers([]);
+    } finally {
       setLoading(false);
-    }, 800);
+    }
   };
 
   return (

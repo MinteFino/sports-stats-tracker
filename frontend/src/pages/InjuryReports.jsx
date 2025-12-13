@@ -1,6 +1,20 @@
 import "./InjuryReports.css";
+import { useEffect, useState } from "react";
+import api from "../api/api";
 
 export default function InjuryReports() {
+  const [injuries, setInjuries] = useState([]);
+
+  useEffect(() => {
+    api.get("/api/injuries")
+      .then((res) => {
+        setInjuries(res.data);
+      })
+      .catch(() => {
+        // keep page stable if API fails
+      });
+  }, []);
+
   return (
     <div className="injury-container">
 
@@ -16,10 +30,8 @@ export default function InjuryReports() {
       <div className="injury-filters">
         <select className="injury-select">
           <option>Choose League</option>
-          <option>Premier League</option>
-          <option>La Liga</option>
-          <option>Serie A</option>
-          <option>MLS</option>
+          <option>NBA</option>
+          <option>Soccer</option>
         </select>
 
         <select className="injury-select">
@@ -32,48 +44,35 @@ export default function InjuryReports() {
 
       {/* Injury List */}
       <div className="injury-list">
-        
-        {/* Card 1 */}
-        <div className="injury-card">
-          <div className="injury-player-info">
-            <img
-              src="https://placehold.co/70x70"
-              alt="Player"
-              className="injury-player-img"
-            />
-            <div>
-              <h3 className="injury-player-name">Player Name</h3>
-              <p className="injury-team">Team Name</p>
+
+        {injuries.map((injury) => (
+          <div className="injury-card" key={injury.id}>
+            <div className="injury-player-info">
+              <img
+                src={injury.image || "https://placehold.co/70x70"}
+                alt={injury.playerName}
+                className="injury-player-img"
+              />
+              <div>
+                <h3 className="injury-player-name">{injury.playerName}</h3>
+                <p className="injury-team">{injury.team}</p>
+              </div>
+            </div>
+
+            <div className="injury-details">
+              <p><strong>Injury:</strong> {injury.injury}</p>
+              <p><strong>Status:</strong> {injury.status}</p>
+              <p>
+                <strong>Expected Return:</strong>{" "}
+                {injury.expectedReturn || "TBD"}
+              </p>
             </div>
           </div>
+        ))}
 
-          <div className="injury-details">
-            <p><strong>Injury:</strong> Hamstring</p>
-            <p><strong>Status:</strong> Out</p>
-            <p><strong>Expected Return:</strong> --/--/----</p>
-          </div>
-        </div>
-
-        {/* Card 2 */}
-        <div className="injury-card">
-          <div className="injury-player-info">
-            <img
-              src="https://placehold.co/70x70"
-              alt="Player"
-              className="injury-player-img"
-            />
-            <div>
-              <h3 className="injury-player-name">Another Player</h3>
-              <p className="injury-team">Team Name</p>
-            </div>
-          </div>
-
-          <div className="injury-details">
-            <p><strong>Injury:</strong> Knee</p>
-            <p><strong>Status:</strong> Day-to-Day</p>
-            <p><strong>Expected Return:</strong> TBD</p>
-          </div>
-        </div>
+        {injuries.length === 0 && (
+          <p style={{ opacity: 0.7 }}>No injury data available.</p>
+        )}
 
       </div>
     </div>
